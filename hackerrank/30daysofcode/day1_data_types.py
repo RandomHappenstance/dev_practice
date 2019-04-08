@@ -5,7 +5,6 @@ d = 4.0
 s = 'HackerRank '
 # Declare second integer, double, and String variables.
 
-import sys
 # Read and save an integer, double, and String to your variables. 
 data = sys.stdin.readlines()
 a = data[0]
