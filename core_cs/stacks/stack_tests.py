@@ -24,6 +24,7 @@
 # Implementation
 
 import unittest
+from stack import Stack
 
 class StackTesting(unittest.TestCase):
     
@@ -33,12 +34,12 @@ class StackTesting(unittest.TestCase):
         stack = Stack()
         assert isinstance(stack, Stack)
 
-    def test_push(self, value):
+    def test_push(self):
         """ Testing an initialized stack's push function."""
         # Pushing a value into an empty stack.
         stack = Stack()
         stack.push('first')
-        assert stack.peek() === 'first'
+        assert stack.peek() == 'first'
 
         # Pushing a second value into the stack.
         stack = Stack()
@@ -84,5 +85,7 @@ class StackTesting(unittest.TestCase):
         # Test after pushing an element that the stack is NOT empty
         stack = Stack()
         stack.push('first')
-        assert stack.is_empty() == 'False'
+        assert stack.is_empty() == False
 
+if __name__ == '__main__':
+    unittest.main()

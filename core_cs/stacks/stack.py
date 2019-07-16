@@ -1,21 +1,21 @@
 class Stack:
     def __init__(self):
-        stack = []
+        self.stack = []
 
-    def is_empty():
-        if len(stack) == 0:
-            True
+    def is_empty(self):
+        if len(self.stack) == 0:
+            return True
         else:
-            False
+            return False
 
-    def push(value):
-        stack.append(value)
+    def push(self, value):
+        self.stack.append(value)
 
-    def pop():
+    def pop(self):
         # Had to look up if a Python list had a pop function.[1]
-        stack.pop()
+        self.stack.pop()
 
-    def peek()
+    def peek(self):
         # Had some problems remembering how to select the last element in a
         # list. The [:] notation is called the 'Slicing Operator'. 
         # 
@@ -23,8 +23,11 @@ class Stack:
         # where the person who replied with:
         #
         # a[start:stop:step]
-
-        cwpass
+        if len(self.stack) == 0:
+            return None
+        else:
+            return self.stack[-1]
+        
     
 # References
 # 1.https://docs.python.org/2/tutorial/datastructures.html
