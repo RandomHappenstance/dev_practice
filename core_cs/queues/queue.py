@@ -9,7 +9,7 @@ class Queue:
             return False
 
     def push(self, value):
-        self.queue.append(value)
+        self.queue.insert(0, value)
 
     def pop(self):
         self.queue.pop()
