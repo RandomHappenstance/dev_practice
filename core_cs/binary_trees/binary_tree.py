@@ -13,6 +13,20 @@ class BinaryTree:
     def get_root(self):
         return self.root
 
+    def min(self, node):
+        print(node.value)
+        if node.left:
+            return self.min(node.left)
+        else:
+            return node.value
+
+    def max(self, node):
+        print(node.value)
+        if node.right:
+            return self.max(node.right)
+        else:
+            return node.value
+
     def add(self, value):
         if self.root is None:
             self.root = Node(value)
@@ -21,12 +35,42 @@ class BinaryTree:
 
     def _add(self, node, value):
         if value < node.value:
-            if node.left is not None:
+            if node.left:
                 self._add(node.left, value)
             else:
                 node.left = Node(value)
-        else :
-            if node.right is not None:
+        else:
+            if node.right:
                 self._add(node.right, value)
             else:
                 node.right = Node(value)
+
+    def print_in_order(self):
+        if self.root:
+            self._print_in_order(self.root)
+
+    def _print_in_order(self, node):
+        if node:
+            self._print_in_order(node.left)
+            print(node.value)
+            self._print_in_order(node.right)
+
+    def print_pre_order(self):
+        if self.root:
+            self._print_pre_order(self.root)
+
+    def _print_pre_order(self, node):
+        if node:
+            print(node.value)
+            self._print_pre_order(node.left)
+            self._print_pre_order(node.right)
+
+    def print_post_order(self):
+        if self.root:
+            self._print_post_order(self.root)
+
+    def _print_post_order(self, node):
+        if node:
+            self._print_post_order(node.left)
+            self._print_post_order(node.right)
+            print(node.value)

@@ -20,19 +20,58 @@ class BinaryTreeTests(unittest.TestCase):
         bt.add(5)
         assert bt.get_root().value == 5
 
-    def test_insert_lower(self):
+    def test_add_lower(self):
         bt = BinaryTree()
         bt.add(5)
         bt.add(3)
         assert bt.get_root().left.value == 3
         assert bt.get_root().right is None
 
-    def test_insert_higher(self):
+    def test_add_higher(self):
         bt = BinaryTree()
         bt.add(5)
         bt.add(8)
         assert bt.get_root().right.value == 8
         assert bt.get_root().left is None
+
+    def test_print_in_order(self):
+        bt = BinaryTree()
+        bt.add(5)
+        bt.add(8)
+        bt.print_in_order()
+
+    def test_print_pre_order(self):
+        bt = BinaryTree()
+        bt.add(5)
+        bt.add(8)
+        bt.print_pre_order()
+
+    def test_print_post_order(self):
+        bt = BinaryTree()
+        bt.add(5)
+        bt.add(8)
+        bt.print_post_order()
+
+    def test_get_min(self):
+        bt = BinaryTree()
+        bt.add(5)
+        bt.add(8)
+        bt.add(2)
+        bt.add(1)
+        bt.add(3)
+        # bt.print_in_order()
+        assert bt.min(bt.get_root()) == 1
+
+    def test_get_max(self):
+        bt = BinaryTree()
+        bt.add(5)
+        bt.add(8)
+        bt.add(9)
+        bt.add(2)
+        bt.add(1)
+        bt.add(3)
+        # bt.print_in_order()
+        assert bt.max(bt.get_root()) == 9
 
 
 class NodeTests(unittest.TestCase):
