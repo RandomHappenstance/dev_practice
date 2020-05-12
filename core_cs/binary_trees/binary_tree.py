@@ -27,6 +27,12 @@ class BinaryTree:
         else:
             return node.value
 
+    def successor(self):
+        pass
+
+    def predecessor(self, node):
+        pass
+
     def add(self, value):
         if self.root is None:
             self.root = Node(value)
