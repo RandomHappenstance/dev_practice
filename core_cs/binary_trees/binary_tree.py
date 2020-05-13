@@ -1,9 +1,11 @@
 class Node:
 
-    def __init__(self, value):
+    def __init__(self, value, parent=None):
         self.value = value
         self.left = None
         self.right = None
+        self.parent = parent
+
 
 class BinaryTree:
     """ This Binary Tree is made under the assumption that we are only handling integers with it. """
@@ -13,29 +15,37 @@ class BinaryTree:
     def get_root(self):
         return self.root
 
+    def search(self, value):
+        if self.root:
+            return self._search(self.root, value)
+
+    def _search(self, node, value):
+        if node:
+            if node.value == value:
+                return node
+            elif value > node.value:
+                return self._search(node.right, value)
+            elif value < node.value:
+                return self._search(node.left, value)
+
     def min(self, node):
-        print(node.value)
         if node.left:
             return self.min(node.left)
         else:
-            return node.value
+            return node
 
     def max(self, node):
-        print(node.value)
         if node.right:
             return self.max(node.right)
         else:
-            return node.value
+            return node
 
-    def successor(self):
-        pass
-
-    def predecessor(self, node):
+    def delete(self, node):
         pass
 
     def add(self, value):
         if self.root is None:
-            self.root = Node(value)
+            self.root = Node(value, None)
         else:
             self._add(self.root, value)
 
@@ -44,12 +54,54 @@ class BinaryTree:
             if node.left:
                 self._add(node.left, value)
             else:
-                node.left = Node(value)
+                node.left = Node(value, node)
         else:
             if node.right:
                 self._add(node.right, value)
             else:
-                node.right = Node(value)
+                node.right = Node(value, node)
+
+    def successor(self, node):
+        """
+        There are two cases.
+        Another way is to have an array with the in order traversal of the tree and get the value
+        right after it.
+        """
+        # The first case is where the node has a right node.
+        if node.right:
+            return self.min(node.right)
+
+        # The second case is when it doesnt have a right node.
+        # Travel up using the parent pointer until you see a node which is
+        # left child of it’s parent. The parent of such a node is the succesor.
+        temp_node = node
+        parent = node.parent
+        while parent is not None and node == parent.left:
+            if temp_node != parent.right:
+                break
+            temp_node = parent
+            parent = parent.parent
+        return parent
+
+    def predecessor(self, node):
+        """
+        There are two cases.
+        The first one is where the node has a left node.
+        The other is when it doesnt. In this case it has to go up until it gets to the previous value.
+
+        Another way is to have an array with the in order traversal of the tree and get the value
+        right before it.
+        """
+        if node.left:
+            return self.max(node.left)
+
+        temp_node = node
+        parent = node.parent
+        while parent is not None and temp_node == parent.right:
+            temp_node = parent
+            parent = parent.parent
+
+        return parent
 
     def print_in_order(self):
         if self.root:
@@ -80,3 +132,16 @@ class BinaryTree:
             self._print_post_order(node.left)
             self._print_post_order(node.right)
             print(node.value)
+
+    def delete(self):
+        pass
+
+
+values = [5, 8, 9, 2, 1, 3]
+bt = BinaryTree()
+for value in values:
+    bt.add(value)
+temp_node2 = bt.search(2)
+s = bt.successor(temp_node2)
+print(s.value)
+
