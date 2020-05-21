@@ -103,34 +103,34 @@ class BinaryTree:
 
         return parent
 
-    def print_in_order(self):
+    def inOrder(self):
         if self.root:
-            self._print_in_order(self.root)
+            self._inOrder(self.root)
 
-    def _print_in_order(self, node):
+    def _inOrder(self, node):
         if node:
-            self._print_in_order(node.left)
+            self._inOrder(node.left)
             print(node.value)
-            self._print_in_order(node.right)
+            self._inOrder(node.right)
 
-    def print_pre_order(self):
+    def preOrder(self):
         if self.root:
-            self._print_pre_order(self.root)
+            self._preOrder(self.root)
 
-    def _print_pre_order(self, node):
+    def _preOrder(self, node):
         if node:
             print(node.value)
-            self._print_pre_order(node.left)
-            self._print_pre_order(node.right)
+            self._preOrder(node.left)
+            self._preOrder(node.right)
 
-    def print_post_order(self):
+    def postOrder(self):
         if self.root:
-            self._print_post_order(self.root)
+            self._postOrder(self.root)
 
-    def _print_post_order(self, node):
+    def _postOrder(self, node):
         if node:
-            self._print_post_order(node.left)
-            self._print_post_order(node.right)
+            self._postOrder(node.left)
+            self._postOrder(node.right)
             print(node.value)
 
     def delete(self):

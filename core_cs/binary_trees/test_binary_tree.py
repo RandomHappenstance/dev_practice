@@ -1,9 +1,10 @@
 import unittest
 import pytest
+# from binary_tree import BinaryTree
+# from binary_tree import Node
 
 from binary_tree import BinaryTree
 from binary_tree import Node
-
 
 class BinaryTreeTests(unittest.TestCase):
 
@@ -35,26 +36,26 @@ class BinaryTreeTests(unittest.TestCase):
         assert bt.get_root().right.value == 8
         assert bt.get_root().left.value == 2
 
-    def test_print_in_order(self):
+    def test_inOrder(self):
         values = [5, 8, 9, 2, 1, 3]
         bt = BinaryTree()
         for value in values:
             bt.add(value)
-        bt.print_in_order()
+        bt.inOrder()
 
-    def test_print_pre_order(self):
+    def test_preOrder(self):
         values = [5, 8, 9, 2, 1, 3]
         bt = BinaryTree()
         for value in values:
             bt.add(value)
-        bt.print_pre_order()
+        bt.preOrder()
 
-    def test_print_post_order(self):
+    def test_postOrder(self):
         values = [5, 8, 9, 2, 1, 3]
         bt = BinaryTree()
         for value in values:
             bt.add(value)
-        bt.print_post_order()
+        bt.postOrder()
 
     def test_get_min(self):
         values = [5, 8, 9, 2, 1, 3]
@@ -97,7 +98,7 @@ class BinaryTreeTests(unittest.TestCase):
 class NodeTests(unittest.TestCase):
 
     def test_node_instantiation(self) -> None:
-        node = Node(5)
+        node = Node(5, None)
         assert isinstance(node, Node)
 
     def test_node_instantiation_without_value(self):
@@ -105,9 +106,9 @@ class NodeTests(unittest.TestCase):
             node = Node()
 
     def test_node_attributes(self):
-        node_attributes = ['value', 'left', 'right', 'parent']
-        node = Node(0)
-        self.assertEqual(list(node.__dict__.keys()), node_attributes)
+        node_attributes = ['left', 'parent', 'right', 'value']
+        node = Node(0, None)
+        self.assertEqual(sorted(list(node.__dict__.keys())), node_attributes)
 
 
 if __name__ == '__main__':
