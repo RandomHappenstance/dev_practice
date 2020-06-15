@@ -136,12 +136,25 @@ class BinaryTree:
     def delete(self):
         pass
 
+    def height(self):
+        return self._height(self.get_root())
 
-values = [5, 8, 9, 2, 1, 3]
-bt = BinaryTree()
-for value in values:
-    bt.add(value)
-temp_node2 = bt.search(2)
-s = bt.successor(temp_node2)
-print(s.value)
+    def _height(self, node):
+        if not node:
+            return 0
 
+        left_height = self._height(node.left)
+        right_height = self._height(node.right)
+
+        return max(left_height, right_height) + 1
+
+
+if __name__ == "__main__":
+    values = [5, 8, 9, 2, 1, 3, 4]
+    bt = BinaryTree()
+    for value in values:
+        bt.add(value)
+    temp_node2 = bt.search(2)
+    s = bt.successor(temp_node2)
+    print(s.value)
+    print(bt.height())

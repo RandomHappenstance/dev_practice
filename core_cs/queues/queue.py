@@ -5,7 +5,6 @@ class Queue:
 
     def is_empty(self):
         """ Returns a boolean for the size of the queue.
-
         Args:
             None
 
