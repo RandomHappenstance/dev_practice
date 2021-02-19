@@ -21,42 +21,6 @@ class BinaryTreeTests(unittest.TestCase):
         bt.add(5)
         assert bt.get_root().value == 5
 
-    def test_add_lower(self):
-        bt = BinaryTree()
-        bt.add(5)
-        bt.add(3)
-        assert bt.get_root().left.value == 3
-        assert bt.get_root().right is None
-
-    def test_add_higher(self):
-        values = [5, 8, 9, 2, 1, 3]
-        bt = BinaryTree()
-        for value in values:
-            bt.add(value)
-        assert bt.get_root().right.value == 8
-        assert bt.get_root().left.value == 2
-
-    def test_inOrder(self):
-        values = [5, 8, 9, 2, 1, 3]
-        bt = BinaryTree()
-        for value in values:
-            bt.add(value)
-        bt.inOrder()
-
-    def test_preOrder(self):
-        values = [5, 8, 9, 2, 1, 3]
-        bt = BinaryTree()
-        for value in values:
-            bt.add(value)
-        bt.preOrder()
-
-    def test_postOrder(self):
-        values = [5, 8, 9, 2, 1, 3]
-        bt = BinaryTree()
-        for value in values:
-            bt.add(value)
-        bt.postOrder()
-
     def test_get_min(self):
         values = [5, 8, 9, 2, 1, 3]
         bt = BinaryTree()
@@ -71,28 +35,13 @@ class BinaryTreeTests(unittest.TestCase):
             bt.add(value)
         assert bt.max(bt.get_root()).value == 9
 
-    def test_search(self):
-        values = [5, 8, 9, 2, 1, 3]
-        bt = BinaryTree()
-        for value in values:
-            bt.add(value)
-        assert bt.search(5).value == 5
-        assert bt.search(9).value == 9
-        assert type(bt.search(9)) == Node
-
     def test_successor(self):
         values = [5, 8, 9, 2, 1, 3]
         bt = BinaryTree()
         for value in values:
             bt.add(value)
-        assert bt.successor(bt.search(2)).value == 3
+        assert bt.successor(bt.search(9)).value == None
 
-    def test_predecessor(self):
-        values = [5, 8, 9, 2, 1, 3]
-        bt = BinaryTree()
-        for value in values:
-            bt.add(value)
-        assert bt.predecessor(bt.search(5)).value == 3
 
 
 class NodeTests(unittest.TestCase):
