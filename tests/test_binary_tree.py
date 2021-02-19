@@ -3,8 +3,9 @@ import pytest
 # from binary_tree import BinaryTree
 # from binary_tree import Node
 
-from binary_tree import BinaryTree
-from binary_tree import Node
+from core_cs.binary_trees.binary_tree import BinaryTree
+from core_cs.binary_trees.binary_tree import Node
+
 
 class BinaryTreeTests(unittest.TestCase):
 
@@ -41,7 +42,6 @@ class BinaryTreeTests(unittest.TestCase):
         for value in values:
             bt.add(value)
         assert bt.successor(bt.search(9)).value == None
-
 
 
 class NodeTests(unittest.TestCase):

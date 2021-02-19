@@ -76,11 +76,16 @@ class BinaryTree:
         # left child of it’s parent. The parent of such a node is the succesor.
         temp_node = node
         parent = node.parent
-        while parent is not None and node == parent.left:
+        while parent is not None and node != parent.left:
             if temp_node != parent.right:
                 break
             temp_node = parent
             parent = parent.parent
+        try:
+            if temp_node is not parent.left or parent.value is None:
+                return Node(None)
+        except:
+            return Node(None)
         return parent
 
     def predecessor(self, node):
@@ -150,11 +155,11 @@ class BinaryTree:
 
 
 if __name__ == "__main__":
-    values = [5, 8, 9, 2, 1, 3, 4]
+    values = [5, 8, 9, 2, 1, 3]
     bt = BinaryTree()
     for value in values:
         bt.add(value)
-    temp_node2 = bt.search(2)
+    temp_node2 = bt.search(3)
     s = bt.successor(temp_node2)
-    print(s.value)
-    print(bt.height())
+    print(s.value or None)
+    # print(bt.height())

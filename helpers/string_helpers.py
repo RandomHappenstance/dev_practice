@@ -4,7 +4,7 @@ import random
 # The requirement was to "print" the string backwards.
 def generate_str():
     """ Returns a random string of a size between 3 and 10 characters and its reverse. """
-    string_size = random.randint(5, 7)
+    string_size = random.randint(5, 8)
     string_output = ""
 
     # TODO A good exercise wold be to generate the forward and reverse strings in one pass.
@@ -15,7 +15,7 @@ def generate_str():
 
 def generate_list():
     """ Returns a random string of a size between 3 and 10 characters and its reverse. """
-    list_size = random.randint(5, 7)
+    list_size = random.randint(1, 50)
     list_output = []
 
     # TODO A good exercise wold be to generate the forward and reverse strings in one pass.

@@ -15,6 +15,7 @@ class MyTestCase(unittest.TestCase):
         output = reverse_in_place(word)
 
         self.assertEqual(output, word_reversed)
+        self.assertEqual(id(output), id(word))
 
 
 if __name__ == '__main__':

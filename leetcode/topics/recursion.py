@@ -14,7 +14,7 @@ def recursive_string_reverse(value: str) -> str:
         return "".join(last)
 
 
-def reverse_in_place(value: str) -> str:
+def reverse_in_place(value: str, pos: int = 0) -> str:
     """ Requirement: Do not allocate extra space for another array, you must do this
                      by modifying the input array in-place with O(1) extra memory.
 
@@ -23,24 +23,20 @@ def reverse_in_place(value: str) -> str:
 
         The algorithm is going to start on the outside, recursively go inward towards the middle.
         """
-    print(value)
     # Break condition
     if len(value) == 1:
-        print("bottom if odd")
         return value
     elif len(value) == 2:
-        print("bottom if even")
-        print(f"value before: {value}")
-        last_elem = value[-1]
-        value[-1] = value[0]
-        value[0] = last_elem
-        print(f"value after: {value}")
+        last_elem = value[-(pos+1)]
+        value[-(pos+1)] = value[pos]
+        value[pos] = last_elem
         return value
     # recursive condition
     else:
-        last_elem = value[-1]
-        value[-1] = value[0]
-        value[0] = last_elem
-        print(f"++ {value}")
-        return reverse_in_place(value[1:-1])
-
+        last_elem = value[-(pos+1)]
+        value[-(pos+1)] = value[pos]
+        value[pos] = last_elem
+        pos += 1
+        if pos < int(len(value))/2:
+            reverse_in_place(value, pos)
+        return value
