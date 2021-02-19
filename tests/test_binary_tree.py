@@ -58,7 +58,7 @@ class NodeTests(unittest.TestCase):
         node_attributes = ['left', 'parent', 'right', 'value']
         node = Node(0, None)
         self.assertEqual(sorted(list(node.__dict__.keys())), node_attributes)
-
-
-if __name__ == '__main__':
-    unittest.main()
+#
+#
+# if __name__ == '__main__':
+#     unittest.main()

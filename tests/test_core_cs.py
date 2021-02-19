@@ -1,5 +1,6 @@
 import unittest
-from leetcode.topics.recursion import recursive_string_reverse, reverse_in_place
+
+from core_cs.recursion.recursion import recursive_string_reverse, reverse_in_place
 from helpers.string_helpers import generate_str, generate_list
 
 
@@ -17,6 +18,6 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(output, word_reversed)
         self.assertEqual(id(output), id(word))
 
-
-if __name__ == '__main__':
-    unittest.main()
+#
+# if __name__ == '__main__':
+#     unittest.main()
