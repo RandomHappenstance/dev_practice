@@ -47,11 +47,18 @@ def computeLPSArray(pat, pattern_length, lps):
                 lps[pattern_index] = 0
                 pattern_index += 1
 
+import random
 
 if __name__ == "__main__":
+
     txt = "ABABDABACDABABCABAB"
-    pat = "ABAB"
-    KMPSearch(pat, txt)
+    txt2 = ""
+    for i in range(1000000):
+        ff = random.randint(50, 120)
+        txt2 += chr(ff)
+    print(txt2)
+    pat = "ABa"
+    KMPSearch(pat, txt2)
 
 
 
