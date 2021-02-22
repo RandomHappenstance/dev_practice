@@ -7,10 +7,8 @@ class EulerTestCases(unittest.TestCase):
     def test_prob_1(self):
         """ """
 
-        sum = mult_sum(10)
-        print(sum)
-        self.assertEqual(sum, 23)
+        total = mult_sum(10)
+        self.assertEqual(total, 23)
 
-        sum = mult_sum(1000)
-        print(sum)
-        self.assertEqual(sum, 233168)
+        total = mult_sum(1000)
+        self.assertEqual(total, 233168)
