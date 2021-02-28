@@ -16,6 +16,14 @@ class BinaryTree:
         return self.root
 
     def search(self, value):
+        """
+            This is the search function in the binary tree search.
+        Args:
+            value:
+
+        Returns:
+
+        """
         if self.root:
             return self._search(self.root, value)
 
