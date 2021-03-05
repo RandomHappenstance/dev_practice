@@ -3,3 +3,5 @@ setuptools~=49.2.0
 rich~=9.11.1
 rinohtype
 sphinx
+matplotlib
+sympy
