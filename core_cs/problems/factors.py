@@ -11,10 +11,15 @@ def get_factors(num):
 
 if __name__ == "__main__":
 
-    max_checked = 0
-    for i in range(110880, 1200000000):
-        # print(i)
-        f = get_factors(i)
-        if len(f) > max_checked:
-            max_checked = len(f)
-            print(max_checked, i, f)
+    with open("numbers.txt", "a") as fi:
+        max_checked = 0
+        for i in range(1443960, 1200000000):
+            f = get_factors(i)
+            fi.write(f"{i}, {len(f)}, {f} \n")
+
+            if len(f) > max_checked:
+                max_checked = len(f)
+                print(max_checked, i, f)
+            if len(f) == 237:
+                print(i, f)
+                fi.write(f"!!!!! - {i}, {len(f)}, {f} \n")
