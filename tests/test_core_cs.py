@@ -17,7 +17,3 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(output, word_reversed)
         self.assertEqual(id(output), id(word))
-
-#
-# if __name__ == '__main__':
-#     unittest.main()
