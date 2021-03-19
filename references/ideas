@@ -1,0 +1,12 @@
+1. what happens when I make functions have their own port. right now we make all transmissions via a single port. Use low
+level  network programming to try to implement that.
+
+* need client and server
+* need to be able to give the the consumers a list of available functions and their ports
+
+* server starts up
+* client starts up
+* client searches for server
+* connects to server
+* maps functions
+* start testing
